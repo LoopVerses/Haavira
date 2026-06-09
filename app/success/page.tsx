@@ -20,14 +20,7 @@ function SuccessContent() {
     }
   }, [items.length]);
 
-  const methodLabel =
-    method === "paypal"
-      ? "PayPal"
-      : method === "stripe"
-        ? "Stripe"
-        : method === "payoneer"
-          ? "Payoneer"
-          : "Card";
+  const methodLabel = method === "stripe" ? "Stripe" : "Card";
 
   return (
     <div

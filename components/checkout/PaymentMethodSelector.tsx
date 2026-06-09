@@ -8,9 +8,7 @@ const LOGO_MAP: Record<string, string> = {
   visa: "/Images/payments/visa.svg",
   mastercard: "/Images/payments/mastercard.svg",
   amex: "/Images/payments/amex.svg",
-  paypal: "/Images/payments/paypal.svg",
   stripe: "/Images/payments/stripe.svg",
-  payoneer: "/Images/payments/payoneer.svg",
 };
 
 interface PaymentMethodSelectorProps {

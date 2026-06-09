@@ -7,6 +7,7 @@ import { Menu, X, ShoppingBag } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useCartStore } from "@/lib/store";
 import { lockBodyScroll, unlockBodyScroll } from "@/lib/scroll-lock";
+import { SOCIAL_LINKS } from "@/lib/social-links";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -208,8 +209,22 @@ export default function Navbar() {
             >
               <span>Est. 2024</span>
               <div className="flex gap-4">
-                <a href="#" className="hover:text-black transition-colors">Instagram</a>
-                <a href="#" className="hover:text-black transition-colors">Twitter</a>
+                <a
+                  href={SOCIAL_LINKS.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-black transition-colors"
+                >
+                  Instagram
+                </a>
+                <a
+                  href={SOCIAL_LINKS.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-black transition-colors"
+                >
+                  TikTok
+                </a>
               </div>
             </motion.div>
           </motion.div>

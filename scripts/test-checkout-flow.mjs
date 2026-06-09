@@ -21,7 +21,7 @@ const payload = {
   ],
 };
 
-const methods = ["card", "paypal", "stripe", "payoneer"];
+const methods = ["card", "stripe"];
 
 async function testMethod(method) {
   const res = await fetch(`${BASE_URL}/api/checkout`, {

@@ -4,9 +4,7 @@ const PAYMENT_LOGOS = [
   { src: "/Images/payments/visa.svg", alt: "Visa", width: 48, height: 16 },
   { src: "/Images/payments/mastercard.svg", alt: "Mastercard", width: 40, height: 28 },
   { src: "/Images/payments/amex.svg", alt: "American Express", width: 40, height: 28 },
-  { src: "/Images/payments/paypal.svg", alt: "PayPal", width: 72, height: 20 },
   { src: "/Images/payments/stripe.svg", alt: "Stripe", width: 56, height: 24 },
-  { src: "/Images/payments/payoneer.svg", alt: "Payoneer", width: 88, height: 20 },
 ] as const;
 
 export default function PaymentMethodBadges() {
@@ -37,8 +35,8 @@ export default function PaymentMethodBadges() {
 
       <p className="text-xs leading-relaxed text-gray-500">
         Payments are processed securely through{" "}
-        <span className="font-semibold text-black">Stripe</span>. Card and PayPal
-        (when enabled in your Stripe account) are supported at checkout.
+        <span className="font-semibold text-black">Stripe</span>. Visa,
+        Mastercard, and Amex are accepted at checkout.
       </p>
     </div>
   );

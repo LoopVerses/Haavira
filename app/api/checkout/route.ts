@@ -21,12 +21,7 @@ interface ShippingDetails {
   country: string;
 }
 
-const VALID_METHODS: PaymentMethodChoice[] = [
-  "card",
-  "paypal",
-  "stripe",
-  "payoneer",
-];
+const VALID_METHODS: PaymentMethodChoice[] = ["card", "stripe"];
 
 function buildSessionParams(
   origin: string,
@@ -103,11 +98,7 @@ async function resolveStripeMethods(
   sessionParams: Stripe.Checkout.SessionCreateParams
 ): Promise<Stripe.Checkout.Session> {
   const attempts: Stripe.Checkout.SessionCreateParams.PaymentMethodType[][] =
-    paymentMethod === "card"
-      ? [["card"]]
-      : paymentMethod === "paypal"
-        ? [["paypal"]]
-        : [["card", "link"], ["card"]];
+    paymentMethod === "card" ? [["card"]] : [["card", "link"], ["card"]];
 
   let lastError: unknown;
 
@@ -123,30 +114,7 @@ async function resolveStripeMethods(
     }
   }
 
-  if (paymentMethod === "paypal") {
-    throw new Error(
-      "PayPal is not enabled on your Stripe account. Enable it in Stripe Dashboard → Settings → Payment methods."
-    );
-  }
-
   throw lastError;
-}
-
-function buildPayoneerTestUrl(
-  origin: string,
-  shipping: ShippingDetails,
-  items: CheckoutItem[]
-) {
-  const total = items.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-  const params = new URLSearchParams({
-    email: shipping.email,
-    total: String(total),
-  });
-
-  return `${origin}/checkout/payoneer-test?${params.toString()}`;
 }
 
 export async function POST(req: NextRequest) {
@@ -189,21 +157,11 @@ export async function POST(req: NextRequest) {
       req.headers.get("origin") ??
       "http://localhost:3000";
 
-    if (paymentMethod === "payoneer") {
-      const testUrl = buildPayoneerTestUrl(origin, shipping, items);
-      return NextResponse.json({
-        url: testUrl,
-        sessionId: `test_payoneer_${Date.now()}`,
-        paymentMethod,
-        testMode: true,
-      });
-    }
-
     if (!process.env.STRIPE_SECRET_KEY) {
       return NextResponse.json(
         {
           error:
-            "Stripe is not configured. Add STRIPE_SECRET_KEY to .env.local for card, PayPal, and Stripe checkout.",
+            "Stripe is not configured. Add STRIPE_SECRET_KEY to .env.local for card and Stripe checkout.",
         },
         { status: 500 }
       );

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SOCIAL_LINKS } from "@/lib/social-links";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -31,10 +32,10 @@ export default function Footer() {
               Born different. Built unstoppable. Premium luxury streetwear designed to define you.
             </p>
             <div className="mt-6 flex items-center gap-4">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-muted transition-colors hover:text-gold" aria-label="Instagram">
+              <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-muted transition-colors hover:text-gold" aria-label="Follow HAAVIRA on Instagram">
                 <InstagramIcon className="h-5 w-5" />
               </a>
-              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="text-muted transition-colors hover:text-gold" aria-label="TikTok">
+              <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer" className="text-muted transition-colors hover:text-gold" aria-label="Follow HAAVIRA on TikTok">
                 <TikTokIcon className="h-5 w-5" />
               </a>
             </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { loadStripe } from "@stripe/stripe-js";
@@ -268,175 +267,6 @@ function StripeWalletForm({
   );
 }
 
-function RedirectPaymentPanel({
-  title,
-  description,
-  buttonLabel,
-  logo,
-  logoAlt,
-  paymentMethod,
-  form,
-  items,
-  onError,
-}: {
-  title: string;
-  description: string;
-  buttonLabel: string;
-  logo: string;
-  logoAlt: string;
-  paymentMethod: PaymentMethodChoice;
-  form: CheckoutFormData;
-  items: CartItem[];
-  onError: (message: string) => void;
-}) {
-  const [loading, setLoading] = useState(false);
-
-  const handleRedirect = async () => {
-    setLoading(true);
-    onError("");
-
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(
-          buildCheckoutPayload(paymentMethod, form, items)
-        ),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Checkout failed");
-      if (data.url) window.location.href = data.url;
-    } catch (err) {
-      onError(err instanceof Error ? err.message : "Payment failed.");
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div className="space-y-5 border border-gray-200 bg-white p-6 text-center">
-      <Image
-        src={logo}
-        alt={logoAlt}
-        width={120}
-        height={32}
-        className="mx-auto h-8 w-auto object-contain"
-        unoptimized
-      />
-      <div>
-        <p className="font-sans text-sm font-bold text-black">{title}</p>
-        <p className="mt-2 text-xs leading-relaxed text-gray-500">{description}</p>
-      </div>
-      <button
-        type="button"
-        onClick={handleRedirect}
-        disabled={loading}
-        className="flex w-full items-center justify-center gap-2 border border-black bg-white py-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-black transition-colors hover:bg-black hover:text-white disabled:opacity-60"
-      >
-        {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : buttonLabel}
-      </button>
-    </div>
-  );
-}
-
-function PayoneerPaymentForm({
-  form,
-  items,
-  total,
-  onError,
-}: {
-  form: CheckoutFormData;
-  items: CartItem[];
-  total: number;
-  onError: (message: string) => void;
-}) {
-  const [payoneerEmail, setPayoneerEmail] = useState(form.email);
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handlePay = async () => {
-    if (!payoneerEmail.trim() || !password.trim()) {
-      onError("Enter your Payoneer email and password.");
-      return;
-    }
-
-    setLoading(true);
-    onError("");
-
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(
-          buildCheckoutPayload("payoneer", { ...form, email: payoneerEmail }, items)
-        ),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Payoneer checkout failed");
-      if (data.url) window.location.href = data.url;
-    } catch (err) {
-      onError(err instanceof Error ? err.message : "Payoneer payment failed.");
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div className="space-y-4 border border-gray-200 bg-white p-4 sm:p-6">
-      <div className="flex items-center justify-between">
-        <p className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
-          Payoneer Account
-        </p>
-        <Image
-          src="/Images/payments/payoneer.svg"
-          alt="Payoneer"
-          width={90}
-          height={20}
-          className="h-5 w-auto"
-          unoptimized
-        />
-      </div>
-
-      <div className="space-y-1.5">
-        <label className="font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-gray-500">
-          Payoneer Email
-        </label>
-        <input
-          type="email"
-          value={payoneerEmail}
-          onChange={(e) => setPayoneerEmail(e.target.value)}
-          className={inputClass}
-          placeholder="your@payoneer.com"
-        />
-      </div>
-
-      <div className="space-y-1.5">
-        <label className="font-sans text-[11px] font-bold uppercase tracking-[0.1em] text-gray-500">
-          Password
-        </label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className={inputClass}
-          placeholder="Enter Payoneer password"
-        />
-      </div>
-
-      <p className="text-xs text-gray-500">
-        Test mode only. Amount: <strong>{formatPrice(total)}</strong>
-      </p>
-
-      <button
-        type="button"
-        onClick={handlePay}
-        disabled={loading}
-        className="flex w-full items-center justify-center gap-2 bg-[#FF4800] py-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-white transition-opacity hover:opacity-90 disabled:opacity-60"
-      >
-        {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Pay with Payoneer"}
-      </button>
-    </div>
-  );
-}
-
 function StripeHostedForm({
   paymentMethod,
   form,
@@ -501,11 +331,6 @@ export default function PaymentMethodForms({
   const [clientSecret, setClientSecret] = useState<string | null>(null);
 
   useEffect(() => {
-    if (paymentMethod !== "card" && paymentMethod !== "stripe") {
-      setClientSecret(null);
-      return;
-    }
-
     let cancelled = false;
 
     const loadIntent = async () => {
@@ -536,39 +361,12 @@ export default function PaymentMethodForms({
     };
   }, [paymentMethod, form, items, onError]);
 
-  if (paymentMethod === "card" || paymentMethod === "stripe") {
-    return (
-      <StripeHostedForm
-        paymentMethod={paymentMethod}
-        form={form}
-        items={items}
-        clientSecret={clientSecret}
-        total={total}
-        onError={onError}
-      />
-    );
-  }
-
-  if (paymentMethod === "paypal") {
-    return (
-      <RedirectPaymentPanel
-        title="Pay with PayPal"
-        description="You will be redirected to PayPal to securely log in and approve your payment."
-        buttonLabel="Continue to PayPal"
-        logo="/Images/payments/paypal.svg"
-        logoAlt="PayPal"
-        paymentMethod="paypal"
-        form={form}
-        items={items}
-        onError={onError}
-      />
-    );
-  }
-
   return (
-    <PayoneerPaymentForm
+    <StripeHostedForm
+      paymentMethod={paymentMethod}
       form={form}
       items={items}
+      clientSecret={clientSecret}
       total={total}
       onError={onError}
     />
