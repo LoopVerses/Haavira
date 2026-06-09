@@ -9,27 +9,32 @@ const announcements = [
   {
     id: "delivery",
     text: "Free UK Delivery On All Orders",
+    mobileText: "Free UK Delivery",
     icon: Truck,
   },
   {
     id: "brand",
     text: "Born Different. Built Unstoppable. — HAAVIRA",
+    mobileText: "Born Different. Built Unstoppable.",
     icon: Sparkles,
   },
   {
     id: "drops",
     text: "Limited Edition Streetwear Drops — Shop The Collection",
+    mobileText: "Shop Limited Edition Drops",
     icon: Sparkles,
     href: "/products",
   },
   {
     id: "secure",
     text: "Secure Checkout · 14-Day Easy Returns",
+    mobileText: "Secure Checkout · Easy Returns",
     icon: ShieldCheck,
   },
   {
     id: "tagline",
     text: "Designed To Define You — Premium Luxury Streetwear",
+    mobileText: "Designed To Define You",
     icon: Sparkles,
   },
 ];
@@ -54,19 +59,17 @@ export default function TopBar() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[60] h-9 border-b border-white/10 bg-foreground text-white"
+      className="fixed left-0 right-0 top-0 z-[60] border-b border-white/10 bg-foreground pt-[var(--safe-top)] text-white"
       role="region"
       aria-label="Store announcements"
     >
-      <div className="mx-auto flex h-full max-w-[1600px] items-center justify-between px-4 md:px-8 lg:px-12">
-        {/* Desktop left */}
+      <div className="mx-auto flex h-9 max-w-[1600px] items-center justify-between px-3 sm:px-6 md:px-8 lg:px-12">
         <p className="hidden items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 lg:flex">
           <Truck className="h-3 w-3 text-gold" strokeWidth={2} />
           Free UK Delivery
         </p>
 
-        {/* Center sliding message */}
-        <div className="relative flex flex-1 items-center justify-center overflow-hidden px-2 md:px-6">
+        <div className="relative flex min-w-0 flex-1 items-center justify-center overflow-hidden px-1 sm:px-4 md:px-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
@@ -74,7 +77,7 @@ export default function TopBar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.45, ease: transitionEase }}
-              className="flex items-center justify-center gap-2 text-center"
+              className="flex w-full min-w-0 items-center justify-center gap-2 text-center"
             >
               <Icon
                 className="hidden h-3.5 w-3.5 shrink-0 text-gold sm:block"
@@ -83,20 +86,21 @@ export default function TopBar() {
               {current.href ? (
                 <Link
                   href={current.href}
-                  className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:text-gold sm:text-[11px] sm:tracking-[0.22em]"
+                  className="truncate font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:text-gold sm:text-[11px] sm:tracking-[0.22em]"
                 >
-                  {current.text}
+                  <span className="sm:hidden">{current.mobileText}</span>
+                  <span className="hidden sm:inline">{current.text}</span>
                 </Link>
               ) : (
-                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white sm:text-[11px] sm:tracking-[0.22em]">
-                  {current.text}
+                <p className="truncate font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-white sm:text-[11px] sm:tracking-[0.22em]">
+                  <span className="sm:hidden">{current.mobileText}</span>
+                  <span className="hidden sm:inline">{current.text}</span>
                 </p>
               )}
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* Desktop right */}
         <div className="hidden items-center gap-4 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 lg:flex">
           <span className="flex items-center gap-1.5">
             <RotateCcw className="h-3 w-3 text-gold" strokeWidth={2} />

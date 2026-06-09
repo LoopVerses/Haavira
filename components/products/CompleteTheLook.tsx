@@ -24,8 +24,8 @@ export default function CompleteTheLook({
   if (relatedProducts.length === 0) return null;
 
   return (
-    <section className="mt-24 border-t border-gray-100 bg-[#fafafa] pt-20 pb-24 sm:mt-32 sm:pt-24">
-      <div className="mx-auto max-w-[1600px] px-6 lg:px-12">
+    <section className="mt-16 border-t border-gray-100 bg-[#fafafa] pb-16 pt-12 sm:mt-24 sm:pb-24 sm:pt-20 lg:mt-32 lg:pt-24">
+      <div className="site-container mx-auto max-w-[1600px]">
         <div className="mb-12 flex flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end">
           <div>
             <p className="mb-3 font-sans text-[10px] font-bold uppercase tracking-[0.3em] text-[#C9A84C]">

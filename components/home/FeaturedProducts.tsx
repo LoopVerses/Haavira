@@ -25,8 +25,8 @@ export default function FeaturedProducts() {
       : products.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="bg-white px-6 py-20 sm:py-24 lg:px-12 lg:py-32">
-      <div className="mx-auto max-w-[1600px]">
+    <section className="bg-white py-16 sm:py-24 lg:py-32">
+      <div className="site-container mx-auto max-w-[1600px]">
         
         {/* ================= HEADER & TABS ================= */}
         <div className="mb-12 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end lg:mb-20">
@@ -148,9 +148,12 @@ export default function FeaturedProducts() {
                 </Link>
                 
                 {/* Mobile Quick Add (Visible only on small screens) */}
-                <button className="mt-4 flex w-full items-center justify-center border border-gray-200 py-3 font-sans text-[10px] font-bold uppercase tracking-widest text-black lg:hidden">
-                  Add To Cart
-                </button>
+                <Link
+                  href={`/products/${product.slug}`}
+                  className="mt-4 flex w-full items-center justify-center border border-gray-200 py-3.5 font-sans text-[10px] font-bold uppercase tracking-widest text-black lg:hidden"
+                >
+                  View Product
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>

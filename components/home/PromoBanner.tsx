@@ -121,7 +121,7 @@ export default function PromoBanner() {
               <p className="mb-2 text-xs font-medium text-gray-500 sm:text-sm">
                 {currentSlide.category}
               </p>
-              <h2 className="mb-6 text-3xl font-extrabold leading-[0.95] tracking-tighter sm:text-4xl md:text-5xl lg:mb-10 lg:text-6xl xl:text-[72px]">
+              <h2 className="mb-4 text-2xl font-extrabold leading-[0.95] tracking-tighter sm:mb-6 sm:text-4xl md:text-5xl lg:mb-10 lg:text-6xl xl:text-[72px]">
                 {currentSlide.title}
               </h2>
               <p className="max-w-sm text-sm leading-relaxed text-gray-600">

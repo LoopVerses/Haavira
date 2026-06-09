@@ -27,7 +27,7 @@ export default function MarqueeStrip() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#C9A84C]/10 via-transparent to-transparent opacity-50 blur-2xl" />
 
       {/* Tilted Marquee Container */}
-      <div className="absolute w-[110vw] -rotate-2 origin-center flex py-6 bg-black shadow-[0_0_40px_rgba(0,0,0,0.8)] border-y border-[#C9A84C]/20">
+      <div className="absolute left-1/2 flex w-[105vw] max-w-none -translate-x-1/2 -rotate-2 origin-center border-y border-[#C9A84C]/20 bg-black py-4 shadow-[0_0_40px_rgba(0,0,0,0.8)] sm:py-6">
         <motion.div
           className="flex w-max items-center gap-8 md:gap-16 px-4"
           animate={{ x: ["0%", "-50%"] }}
@@ -45,7 +45,7 @@ export default function MarqueeStrip() {
               <React.Fragment key={`marquee-item-${index}`}>
                 <motion.span
                   whileHover={{ scale: 1.05, color: "#C9A84C" }}
-                  className={`flex shrink-0 cursor-default items-center font-sans text-2xl font-black uppercase tracking-[0.1em] transition-colors duration-300 sm:text-4xl md:text-[70px] ${
+                  className={`flex shrink-0 cursor-default items-center font-sans text-xl font-black uppercase tracking-[0.08em] transition-colors duration-300 sm:text-4xl sm:tracking-[0.1em] md:text-[70px] ${
                     isOutline
                       ? "text-transparent [-webkit-text-stroke:1px_#ffffff] md:[-webkit-text-stroke:2px_#ffffff] hover:[-webkit-text-stroke:2px_#C9A84C]"
                       : "text-white"

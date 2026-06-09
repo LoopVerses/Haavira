@@ -181,7 +181,7 @@ export default function NewArrivals() {
             </AnimatePresence>
 
             {/* ================= NAVIGATION CONTROLS ================= */}
-            <div className="mt-16 pt-8 border-t border-gray-200 flex items-center justify-between">
+            <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-gray-200 pt-8 sm:mt-16">
               
               {/* Animated Progress Line */}
               <div className="flex-1 max-w-[150px] h-[2px] bg-gray-200 relative overflow-hidden">

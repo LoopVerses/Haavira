@@ -41,7 +41,7 @@ function FormSection({
 }) {
   return (
     <div className="space-y-6">
-      <h2 className="border-b border-gray-200 pb-3 font-sans text-lg font-bold uppercase tracking-widest text-black">
+      <h2 className="border-b border-gray-200 pb-3 font-sans text-base font-bold uppercase tracking-widest text-black sm:text-lg">
         {title}
       </h2>
       <div className="space-y-4">{children}</div>
@@ -200,9 +200,9 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="flex min-h-screen flex-col lg:flex-row">
-        <div className="flex w-full justify-end px-6 py-10 lg:w-[55%] lg:px-16 lg:py-16 xl:w-[60%]">
+        <div className="flex w-full justify-end px-4 py-8 sm:px-6 sm:py-10 lg:w-[55%] lg:px-16 lg:py-16 xl:w-[60%]">
           <div className="w-full max-w-2xl lg:ml-auto">
-            <div className="mb-10 flex items-center justify-between">
+            <div className="mb-8 flex flex-wrap items-center justify-between gap-3 sm:mb-10">
               <Link
                 href="/cart"
                 className="group flex items-center gap-2 font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 transition-colors hover:text-black"
@@ -221,7 +221,7 @@ export default function CheckoutPage() {
               </div>
             </div>
 
-            <h1 className="mb-6 font-sans text-4xl font-black uppercase tracking-tighter text-black">
+            <h1 className="mb-6 font-sans text-3xl font-black uppercase tracking-tighter text-black sm:text-4xl">
               Checkout
             </h1>
 
@@ -382,10 +382,10 @@ export default function CheckoutPage() {
                         />
                       </div>
                     </FormSection>
-                    <div className="absolute inset-0 flex items-center justify-center bg-white/60 backdrop-blur-[1px]">
-                      <div className="flex items-center gap-2 border border-gray-300 bg-white px-4 py-3 shadow-sm">
-                        <Lock className="h-4 w-4 text-gray-500" />
-                        <p className="font-sans text-xs font-bold uppercase tracking-wider text-gray-600">
+                    <div className="absolute inset-0 flex items-center justify-center bg-white/60 p-4 backdrop-blur-[1px]">
+                      <div className="flex max-w-xs items-center gap-2 border border-gray-300 bg-white px-3 py-2.5 text-center shadow-sm sm:max-w-none sm:px-4 sm:py-3">
+                        <Lock className="h-4 w-4 shrink-0 text-gray-500" />
+                        <p className="font-sans text-[10px] font-bold uppercase leading-snug tracking-wider text-gray-600 sm:text-xs">
                           Complete your details to unlock payment
                         </p>
                       </div>
@@ -419,7 +419,7 @@ export default function CheckoutPage() {
               </div>
             ) : (
               <div>
-                <div className="mb-8 flex items-center justify-between border-b border-gray-200 pb-4">
+                <div className="mb-8 flex flex-wrap items-center justify-between gap-3 border-b border-gray-200 pb-4">
                   <button
                     type="button"
                     onClick={() => {
@@ -431,7 +431,7 @@ export default function CheckoutPage() {
                     <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" />
                     Edit Information
                   </button>
-                  <p className="font-sans text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                  <p className="max-w-[50%] truncate font-sans text-[10px] font-bold uppercase tracking-widest text-gray-400">
                     {form.email}
                   </p>
                 </div>

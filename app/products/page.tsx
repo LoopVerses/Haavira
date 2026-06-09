@@ -82,7 +82,7 @@ function ProductsContent() {
         </p>
       </div>
 
-      <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mb-10 flex flex-col gap-5 sm:gap-6 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-wrap gap-2">
           {PRODUCT_CATEGORIES.map((cat) => {
             const isActive =
@@ -94,7 +94,7 @@ function ProductsContent() {
               <Link
                 key={cat.id}
                 href={href}
-                className={`px-5 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 ${
+                className={`px-4 py-2.5 font-mono text-[10px] font-semibold uppercase tracking-widest transition-all duration-300 sm:px-5 sm:text-[11px] ${
                   isActive
                     ? "bg-foreground text-white"
                     : "bg-surface text-muted hover:bg-border hover:text-foreground"
@@ -106,7 +106,7 @@ function ProductsContent() {
           })}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex w-full items-center gap-3 sm:w-auto">
           <label
             htmlFor="sort-products"
             className="font-mono text-[10px] uppercase tracking-widest text-muted"

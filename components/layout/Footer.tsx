@@ -21,7 +21,7 @@ function TikTokIcon({ className }: { className?: string }) {
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-border bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+      <div className="site-container mx-auto max-w-7xl py-12 sm:py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2 lg:col-span-1">
             <h3 className="font-display text-[18px] font-semibold" style={{ letterSpacing: "0.3em" }}>

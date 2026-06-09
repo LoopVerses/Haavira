@@ -56,21 +56,24 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        className="fixed top-9 left-0 right-0 z-50 transition-all duration-500"
+        className="fixed left-0 right-0 top-[var(--navbar-offset)] z-50 transition-all duration-500"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: transitionEase }}
         style={{
+          marginTop: "var(--header-margin-top)",
+          paddingLeft: "var(--safe-left)",
+          paddingRight: "var(--safe-right)",
           backgroundColor: scrolled ? "rgba(255, 255, 255, 0.85)" : "transparent",
           backdropFilter: scrolled ? "blur(12px)" : "none",
           borderBottom: scrolled ? "1px solid rgba(0,0,0,0.05)" : "1px solid transparent",
         }}
       >
-        <nav className="mx-auto flex h-[80px] max-w-[1600px] items-center justify-between px-6 lg:px-12">
+        <nav className="mx-auto flex h-[68px] max-w-[1600px] items-center justify-between px-4 sm:px-6 md:h-[80px] lg:px-12">
           
           {/* LOGO */}
           <Link href="/" className="flex-shrink-0 z-50 group">
-            <span className="font-sans text-xl font-black tracking-[0.25em] text-black uppercase relative">
+            <span className="relative font-sans text-lg font-black uppercase tracking-[0.2em] text-black sm:text-xl sm:tracking-[0.25em]">
               Haavira
               <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
             </span>
@@ -109,7 +112,7 @@ export default function Navbar() {
           <div className="flex items-center gap-6 z-50">
             <button
               onClick={openCart}
-              className="relative group p-2 flex items-center justify-center transition-transform hover:scale-110 duration-300"
+              className="relative group flex cursor-pointer items-center justify-center p-2 transition-transform duration-300 hover:scale-110"
               aria-label="Open bag"
             >
               <ShoppingBag className="h-5 w-5 text-black" strokeWidth={1.5} />
@@ -152,7 +155,7 @@ export default function Navbar() {
             className="fixed inset-0 z-[100] flex flex-col bg-white"
           >
             {/* Mobile Header */}
-            <div className="flex h-[80px] items-center justify-between px-6 border-b border-gray-100">
+            <div className="flex h-[68px] items-center justify-between border-b border-gray-100 px-4 sm:px-6 md:h-[80px]">
               <span className="font-sans text-xl font-black tracking-[0.25em] text-black uppercase">
                 Haavira
               </span>
@@ -184,7 +187,7 @@ export default function Navbar() {
                       <Link
                         href={link.href}
                         onClick={() => setMobileOpen(false)}
-                        className={`text-5xl md:text-7xl font-black uppercase tracking-tighter transition-colors duration-300 ${
+                        className={`text-4xl font-black uppercase tracking-tighter transition-colors duration-300 sm:text-5xl md:text-7xl ${
                           isActive ? "text-black" : "text-gray-300 hover:text-black"
                         }`}
                       >

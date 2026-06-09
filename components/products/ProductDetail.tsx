@@ -124,10 +124,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   };
 
   return (
-    <div className="bg-white selection:bg-black selection:text-white pb-20">
+    <div className="overflow-x-clip bg-white pb-12 selection:bg-black selection:text-white sm:pb-20">
       
       {/* Top Breadcrumb */}
-      <div className="mx-auto max-w-[1600px] px-6 py-6 lg:px-12">
+      <div className="site-container mx-auto max-w-[1600px] py-4 sm:py-6">
         <Link
           href="/products"
           className="group inline-flex items-center gap-3 font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors"
@@ -137,9 +137,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </Link>
       </div>
 
-      <div className="mx-auto max-w-[1600px] px-6 lg:px-12">
-        {/* Main Grid: Gallery takes 1.5 fraction, Info takes 1 fraction */}
-        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+      <div className="site-container mx-auto max-w-[1600px]">
+        <div className="grid grid-cols-1 items-start gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
           
           {/* LEFT: Product Gallery (Scrollable) */}
           <motion.div 
@@ -159,7 +158,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 Haavira / Drop 01
               </motion.p>
 
-              <motion.h1 variants={staggerItem} className="font-sans text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-[0.9] text-black mb-4">
+              <motion.h1 variants={staggerItem} className="mb-4 font-sans text-3xl font-black uppercase leading-[0.9] tracking-tighter text-black sm:text-4xl lg:text-5xl">
                 {product.name.replace("HAAVIRA ", "")}
               </motion.h1>
 

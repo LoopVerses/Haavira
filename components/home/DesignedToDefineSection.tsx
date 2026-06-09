@@ -26,7 +26,7 @@ const highlights = ["S", "M", "L", "XL", "Free UK Delivery"];
 export default function DesignedToDefineSection() {
   return (
     <section
-      className="relative min-h-[560px] overflow-x-clip sm:min-h-[620px] lg:min-h-[680px]"
+      className="relative min-h-[480px] overflow-x-clip sm:min-h-[560px] lg:min-h-[680px]"
       aria-label="Designed To Define You"
     >
       <motion.div
@@ -59,7 +59,7 @@ export default function DesignedToDefineSection() {
         02
       </span>
 
-      <div className="site-container relative z-10 flex min-h-[560px] items-center py-16 sm:min-h-[620px] sm:py-20 lg:min-h-[680px] lg:py-24">
+      <div className="site-container relative z-10 flex min-h-[480px] items-center py-12 sm:min-h-[560px] sm:py-20 lg:min-h-[680px] lg:py-24">
         <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
             initial={{ x: -48 }}

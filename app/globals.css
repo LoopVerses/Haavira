@@ -9,8 +9,24 @@
   --gold: #c9a84c;
   --crimson: #8b0000;
   --muted: #6b6b6b;
-  --header-height: 116px;
+  --topbar-height: 36px;
+  --navbar-height: 68px;
+  --header-gap: 2px;
+  --header-margin-top: -0.4%;
+  --topbar-offset: calc(var(--topbar-height) + var(--safe-top));
+  --navbar-offset: calc(var(--topbar-offset) + var(--header-gap));
+  --header-height: calc(var(--navbar-offset) + var(--navbar-height));
   --container-px: 1rem;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --navbar-height: 80px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -48,6 +64,7 @@ html {
   scroll-padding-top: var(--header-height);
   width: 100%;
   height: auto;
+  overflow-x: clip;
 }
 
 body {
@@ -59,6 +76,17 @@ body {
   width: 100%;
   min-width: 320px;
   min-height: 100%;
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent iOS zoom on input focus */
+@media (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
 .site-container {

@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import products from "@/lib/products";
 
-const SECTION_BG = "/Images/havara 8.jpeg";
 const SECTION_PRODUCT = "/Images/Main_product_1.png";
 
 const leatherProduct =
@@ -32,23 +31,23 @@ const highlights = [
 export default function GenuineLeatherSection() {
   return (
     <section
-      className="relative min-h-[560px] overflow-x-clip bg-white sm:min-h-[620px] lg:min-h-[680px]"
+      className="relative min-h-[480px] overflow-x-clip bg-white sm:min-h-[560px] lg:min-h-[680px]"
       aria-label="Genuine Leather Jacket"
     >
-      <div className="section-bg-image absolute inset-0">
-        <div className="relative h-full w-full">
+      <div className="section-bg-image absolute inset-0 overflow-hidden">
+        <div className="relative h-full w-full scale-110">
           <Image
-            src={SECTION_BG}
+            src={SECTION_PRODUCT}
             alt=""
             fill
-            className="object-cover object-[65%_center]"
+            className="object-cover object-[28%_center] opacity-[0.35] sm:object-[32%_center] sm:opacity-40 lg:object-[30%_center] lg:opacity-[0.45]"
             sizes="100vw"
           />
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/78 to-white/92" />
-      <div className="absolute inset-0 bg-gradient-to-t from-white/65 via-white/15 to-white/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/72 via-white/82 to-white/94" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/20 to-white/45" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_45%,rgba(201,168,76,0.16),transparent_58%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_55%,rgba(255,255,255,0.55),transparent_52%)]" />
 
@@ -59,7 +58,7 @@ export default function GenuineLeatherSection() {
         01
       </span>
 
-      <div className="site-container relative z-10 flex min-h-[560px] items-center py-16 sm:min-h-[620px] sm:py-20 lg:min-h-[680px] lg:py-24">
+      <div className="site-container relative z-10 flex min-h-[480px] items-center py-12 sm:min-h-[560px] sm:py-20 lg:min-h-[680px] lg:py-24">
         <div className="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14 xl:gap-16">
           <div className="relative mx-auto w-full lg:mx-0 lg:max-w-none lg:justify-self-start">
             <div className="relative aspect-[4/5] w-full max-w-[440px] sm:max-w-[500px] lg:max-w-[560px] xl:max-w-[600px]">

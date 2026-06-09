@@ -31,7 +31,7 @@ function SuccessContent() {
 
   return (
     <div
-      className="flex min-h-[70vh] flex-col items-center justify-center px-6 text-center"
+      className="flex min-h-[70vh] flex-col items-center justify-center px-4 py-12 text-center sm:px-6"
       style={{ backgroundColor: "#080808" }}
     >
       <motion.div
@@ -44,7 +44,7 @@ function SuccessContent() {
           HAAVIRA
         </p>
 
-        <h1 className="mt-6 font-display text-4xl font-bold text-white md:text-5xl">
+        <h1 className="mt-6 font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
           ORDER CONFIRMED
         </h1>
 

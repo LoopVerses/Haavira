@@ -26,7 +26,7 @@ export default function PageTransition({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
-      className="w-full flex-1"
+      className="w-full min-w-0 flex-1 overflow-x-clip"
     >
       {children}
     </motion.div>

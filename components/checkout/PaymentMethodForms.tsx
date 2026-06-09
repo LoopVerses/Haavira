@@ -134,7 +134,7 @@ function CardPaymentForm({
   };
 
   return (
-    <div className="space-y-4 border border-gray-200 bg-white p-6">
+    <div className="space-y-4 border border-gray-200 bg-white p-4 sm:p-6">
       <p className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
         Card Details
       </p>
@@ -251,7 +251,7 @@ function StripeWalletForm({
   };
 
   return (
-    <div className="space-y-4 border border-gray-200 bg-white p-6">
+    <div className="space-y-4 border border-gray-200 bg-white p-4 sm:p-6">
       <p className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
         Stripe Secure Payment
       </p>
@@ -380,7 +380,7 @@ function PayoneerPaymentForm({
   };
 
   return (
-    <div className="space-y-4 border border-gray-200 bg-white p-6">
+    <div className="space-y-4 border border-gray-200 bg-white p-4 sm:p-6">
       <div className="flex items-center justify-between">
         <p className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
           Payoneer Account

@@ -72,7 +72,7 @@ export default function RootLayout({
         <LenisProvider>
           <TopBar />
           <Navbar />
-          <main className="flex w-full flex-1 flex-col pt-[var(--header-height)]">
+          <main className="flex w-full min-w-0 flex-1 flex-col overflow-x-clip pt-[var(--header-height)]">
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />

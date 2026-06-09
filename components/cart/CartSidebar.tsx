@@ -51,15 +51,20 @@ export default function CartSidebar() {
             exit={{ x: "100%" }}
             transition={{ duration: 0.5, ease: luxuryEase }}
             className="fixed right-0 top-0 z-[110] flex h-[100dvh] w-full max-w-[440px] flex-col bg-white shadow-[0_0_40px_rgba(0,0,0,0.1)]"
+            style={{
+              paddingTop: "var(--safe-top)",
+              paddingBottom: "var(--safe-bottom)",
+              paddingRight: "var(--safe-right)",
+            }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-8 py-6 border-b border-gray-100">
+            <div className="flex items-center justify-between border-b border-gray-100 px-5 py-5 sm:px-8 sm:py-6">
               <h2 className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-black">
                 Shopping Bag <span className="text-gray-400">({items.length})</span>
               </h2>
               <button 
                 onClick={closeCart} 
-                className="p-2 -mr-2 text-black hover:rotate-90 transition-transform duration-500" 
+                className="cursor-pointer p-2 -mr-2 text-black transition-transform duration-500 hover:rotate-90" 
                 aria-label="Close bag"
               >
                 <X className="h-6 w-6" strokeWidth={1} />
@@ -67,7 +72,7 @@ export default function CartSidebar() {
             </div>
 
             {/* Cart Items Area */}
-            <div className="flex-1 overflow-y-auto px-8">
+            <div className="flex-1 overflow-y-auto px-5 sm:px-8">
               {items.length === 0 ? (
                 <div className="flex h-full flex-col items-center justify-center text-center">
                   <p className="font-sans text-3xl font-black uppercase tracking-tighter text-gray-200">
@@ -163,7 +168,7 @@ export default function CartSidebar() {
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="bg-[#fafafa] px-8 py-8 border-t border-gray-200"
+                className="border-t border-gray-200 bg-[#fafafa] px-5 py-6 sm:px-8 sm:py-8"
               >
                 <div className="mb-6 flex items-end justify-between">
                   <span className="font-sans text-[11px] font-bold uppercase tracking-widest text-gray-500">
