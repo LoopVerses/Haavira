@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import CartSidebar from "@/components/cart/CartSidebar";
 import PageTransition from "@/components/layout/PageTransition";
 import LenisProvider from "@/components/providers/LenisProvider";
+import AnalyticsScripts from "@/components/analytics/AnalyticsScripts";
 
 const playfair = Playfair_Display({
   variable: "--font-display",
@@ -70,6 +71,7 @@ export default function RootLayout({
         className="flex min-h-screen flex-col bg-background text-foreground"
       >
         <LenisProvider>
+          <AnalyticsScripts />
           <TopBar />
           <Navbar />
           <main className="flex w-full min-w-0 flex-1 flex-col overflow-x-clip pt-[var(--header-height)]">

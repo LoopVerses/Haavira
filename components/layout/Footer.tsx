@@ -31,6 +31,12 @@ export default function Footer() {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
               Born different. Built unstoppable. Premium luxury streetwear designed to define you.
             </p>
+            <a
+              href="mailto:support@haavira.com"
+              className="mt-3 inline-block text-sm text-muted transition-colors hover:text-foreground"
+            >
+              support@haavira.com
+            </a>
             <div className="mt-6 flex items-center gap-4">
               <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-muted transition-colors hover:text-gold" aria-label="Follow HAAVIRA on Instagram">
                 <InstagramIcon className="h-5 w-5" />
@@ -53,8 +59,8 @@ export default function Footer() {
           <div>
             <h4 className="font-mono text-[11px] uppercase tracking-[0.2em] text-foreground">Company</h4>
             <ul className="mt-4 space-y-3">
-              <li><Link href="/journal" className="text-sm text-muted transition-colors hover:text-foreground">Journal</Link></li>
-              <li><Link href="/stockists" className="text-sm text-muted transition-colors hover:text-foreground">Stockists</Link></li>
+              <li><Link href="/about" className="text-sm text-muted transition-colors hover:text-foreground">About Us</Link></li>
+              <li><Link href="/faq" className="text-sm text-muted transition-colors hover:text-foreground">FAQ</Link></li>
               <li><Link href="/contact" className="text-sm text-muted transition-colors hover:text-foreground">Contact</Link></li>
             </ul>
           </div>
@@ -64,7 +70,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-3">
               <li><Link href="/privacy" className="text-sm text-muted transition-colors hover:text-foreground">Privacy</Link></li>
               <li><Link href="/returns" className="text-sm text-muted transition-colors hover:text-foreground">Returns</Link></li>
-              <li><Link href="/returns" className="text-sm text-muted transition-colors hover:text-foreground">Shipping</Link></li>
+              <li><Link href="/shipping" className="text-sm text-muted transition-colors hover:text-foreground">Shipping</Link></li>
             </ul>
           </div>
         </div>

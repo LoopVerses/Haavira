@@ -10,6 +10,7 @@ import GenuineLeatherSection from "@/components/home/GenuineLeatherSection";
 import DesignedToDefineSection from "@/components/home/DesignedToDefineSection";
 import LeatherDetailGallery from "@/components/home/LeatherDetailGallery";
 import FeaturedProducts from "@/components/home/FeaturedProducts";
+import CustomerReviews from "@/components/home/CustomerReviews";
 import SlideSection from "@/components/ui/SlideSection";
 import { luxuryEase } from "@/lib/motion";
 
@@ -42,6 +43,10 @@ export default function Home() {
 
       <SlideSection direction="up">
         <FeaturedProducts />
+      </SlideSection>
+
+      <SlideSection direction="up" delay={0.05}>
+        <CustomerReviews />
       </SlideSection>
 
       <SlideSection
